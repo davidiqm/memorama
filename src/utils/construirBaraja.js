@@ -8,7 +8,7 @@ export default () => {
   const cartas = []
 
   while (cartas.length < NUMERO_DE_CARTAS) {
-    const index = Math.floor(Math.random * fontAwesomeClasses.length)
+    const index = Math.floor(Math.random() * fontAwesomeClasses.length)
     const carta = {
       icono: fontAwesomeClasses.splice(index, 1)[0],
       fueAdivinada: false

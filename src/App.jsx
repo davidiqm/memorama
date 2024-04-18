@@ -50,7 +50,7 @@ function App () {
   }
 
   const handleResetearPartida = () => {
-    setBaraja(estadoInicial.barajaInicial)
+    setBaraja(construirBaraja())
     setParejaSeleccionada(estadoInicial.parejaSeleccionada)
     setEstaComparando(estadoInicial.estaComparando)
     setNumeroIntentos(estadoInicial.numeroIntentos)
@@ -60,7 +60,7 @@ function App () {
     if (baraja.filter(carta => !carta.fueAdivinada).length === 0) {
       alert(`Ganaste en ${numeroIntentos} intentos!`)
     }
-  }, [baraja])
+  }, [baraja, numeroIntentos])
 
   return (
     <main>
