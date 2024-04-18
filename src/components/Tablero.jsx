@@ -1,7 +1,7 @@
 import Carta from './Carta'
 import '../css/Tablero.css'
 
-export default function Tablero({ baraja, parejaSeleccionada, handleSeleccionarCarta }) {
+export default function Tablero ({ baraja, parejaSeleccionada, handleSeleccionarCarta }) {
   return (
     <div className='tablero'>
       {baraja.map((carta, index) => {

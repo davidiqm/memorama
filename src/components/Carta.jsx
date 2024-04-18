@@ -1,15 +1,15 @@
-import ReactCardFlip from "react-card-flip";
+import ReactCardFlip from 'react-card-flip'
 import '../css/Carta.css'
 
-export default function Carta({ icono, estaSiendoComparada, handleSeleccionarCarta, fueAdivinada }) {
+export default function Carta ({ icono, estaSiendoComparada, handleSeleccionarCarta, fueAdivinada }) {
   return (
-    <div className="carta" onClick={handleSeleccionarCarta}>
+    <div className='carta' onClick={handleSeleccionarCarta}>
       <ReactCardFlip
         isFlipped={estaSiendoComparada || fueAdivinada}
       >
-        <div className="portada"></div>
-        <div className="contenido">
-          <i className={`fa ${icono} fa-5x`}></i>
+        <div className='portada' />
+        <div className='contenido'>
+          <i className={`fa ${icono} fa-5x`} />
         </div>
       </ReactCardFlip>
     </div>

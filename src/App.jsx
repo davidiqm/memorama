@@ -12,7 +12,7 @@ const estadoInicial = {
   numeroIntentos: 0
 }
 
-function App() {
+function App () {
   const [baraja, setBaraja] = useState([...estadoInicial.barajaInicial])
   const [parejaSeleccionada, setParejaSeleccionada] = useState(estadoInicial.parejaSeleccionada)
   const [estaComparando, setEstaComparando] = useState(estadoInicial.estaComparando)
@@ -43,12 +43,12 @@ function App() {
   const handleSeleccionarCarta = (carta) => {
     if (estaComparando || carta.fueAdivinada || parejaSeleccionada.indexOf(carta) > -1) return
 
-    const nuevaParejaSeleccionada = [...parejaSeleccionada, carta]    
+    const nuevaParejaSeleccionada = [...parejaSeleccionada, carta]
     setParejaSeleccionada(nuevaParejaSeleccionada)
 
     if (nuevaParejaSeleccionada.length === 2) compararPareja(nuevaParejaSeleccionada)
   }
-  
+
   const handleResetearPartida = () => {
     setBaraja(estadoInicial.barajaInicial)
     setParejaSeleccionada(estadoInicial.parejaSeleccionada)
@@ -58,7 +58,7 @@ function App() {
 
   useEffect(() => {
     if (baraja.filter(carta => !carta.fueAdivinada).length === 0) {
-      alert(`Ganaste en ${numeroIntentos} intentos!`);
+      alert(`Ganaste en ${numeroIntentos} intentos!`)
     }
   }, [baraja])
 
@@ -69,7 +69,7 @@ function App() {
         handleResetearPartida={handleResetearPartida}
       />
 
-      <Tablero 
+      <Tablero
         baraja={baraja}
         parejaSeleccionada={parejaSeleccionada}
         handleSeleccionarCarta={handleSeleccionarCarta}
