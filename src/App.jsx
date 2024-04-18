@@ -18,9 +18,9 @@ function App () {
   const [estaComparando, setEstaComparando] = useState(estadoInicial.estaComparando)
   const [numeroIntentos, setNumeroIntentos] = useState(estadoInicial.numeroIntentos)
 
-  const verificarGanador = (baraja) => {
+  const verificarGanador = (baraja, intentos) => {
     if (baraja.filter(carta => !carta.fueAdivinada).length === 0) {
-      alert(`Ganaste en ${numeroIntentos + 1} intentos!`)
+      alert(`Ganaste en ${intentos} intentos!`)
     }
   }
 
@@ -39,11 +39,12 @@ function App () {
         })
       }
 
-      setNumeroIntentos(numeroIntentos + 1)
+      const intentos = numeroIntentos + 1
+      setNumeroIntentos(intentos)
       setParejaSeleccionada([])
-      setBaraja(barajaComparar)
       setEstaComparando(false)
-      verificarGanador(barajaComparar)
+      setBaraja(barajaComparar)
+      verificarGanador(barajaComparar, intentos)
     }, 1000)
   }
 
