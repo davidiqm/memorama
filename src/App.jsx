@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import construirBaraja from './utils/construirBaraja'
 import Header from './components/Header'
 import Tablero from './components/Tablero'
@@ -17,6 +17,12 @@ function App () {
   const [parejaSeleccionada, setParejaSeleccionada] = useState(estadoInicial.parejaSeleccionada)
   const [estaComparando, setEstaComparando] = useState(estadoInicial.estaComparando)
   const [numeroIntentos, setNumeroIntentos] = useState(estadoInicial.numeroIntentos)
+
+  const verificarGanador = (baraja) => {
+    if (baraja.filter(carta => !carta.fueAdivinada).length === 0) {
+      alert(`Ganaste en ${numeroIntentos + 1} intentos!`)
+    }
+  }
 
   const compararPareja = parejaSeleccionada => {
     setEstaComparando(true)
@@ -37,6 +43,7 @@ function App () {
       setParejaSeleccionada([])
       setBaraja(barajaComparar)
       setEstaComparando(false)
+      verificarGanador(barajaComparar)
     }, 1000)
   }
 
@@ -53,16 +60,8 @@ function App () {
     setParejaSeleccionada(estadoInicial.parejaSeleccionada)
     setEstaComparando(estadoInicial.estaComparando)
     setNumeroIntentos(estadoInicial.numeroIntentos)
-    setTimeout(() => {
-      setBaraja(construirBaraja())
-    }, 500)
+    setBaraja(construirBaraja())
   }
-
-  useEffect(() => {
-    if (baraja.filter(carta => !carta.fueAdivinada).length === 0) {
-      alert(`Ganaste en ${numeroIntentos} intentos!`)
-    }
-  }, [baraja, numeroIntentos])
 
   return (
     <main>
