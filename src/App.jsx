@@ -50,10 +50,12 @@ function App () {
   }
 
   const handleResetearPartida = () => {
-    setBaraja(construirBaraja())
     setParejaSeleccionada(estadoInicial.parejaSeleccionada)
     setEstaComparando(estadoInicial.estaComparando)
     setNumeroIntentos(estadoInicial.numeroIntentos)
+    setTimeout(() => {
+      setBaraja(construirBaraja())
+    }, 500)
   }
 
   useEffect(() => {
